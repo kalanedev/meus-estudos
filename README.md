@@ -2,12 +2,12 @@
 Aqui irei regitrar estudos, cursos e outras coisas que estou aprendendo e fazer minhas anotações para facilitar o meu planejamento, fixar meu conhecimento e monitorar minha evolução.
 
 ## Anotações
-- HTML
-- CSS
-- Linux
-- PHP
-- GIT
-- POO
+- [HTML](anotacoes/html-tags.md)
+- [CSS](anotacoes/css.md)
+- [Linux](anotacoes/linux.md)
+- [PHP](anotacoes/php.md)
+- [GIT](anotacoes/git.md)
+- [POO](anotacoes/poo.md)
 
 ## Cursos
 | Cursos              | Link                                                                             |
