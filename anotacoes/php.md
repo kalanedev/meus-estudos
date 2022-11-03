@@ -1,8 +1,13 @@
 
 
-básico de php
+# Basicão de PHP
 
-ponto e vírgula: finaliza a linha, é necessário que tenha em todas para não dar erro 
+## Sintaxe
+
+Para entendermos como é escrito a linguagem PHP, primeiro precisamos entender suas regras gramaticais:
+
+- **Variaveis de Abertura/Fechamento**: indica pro interpretador que a partir daquela tag, você está escrevendo ou finalizando o dialeto PHP.
+- **Ponto e Virgula**: finaliza uma estrutura de comando (ou uma linha) que não seja estrutura de condição ou repetição.
 
 tags do php
 
