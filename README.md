@@ -8,6 +8,7 @@ Aqui irei regitrar estudos, cursos e outras coisas que estou aprendendo e fazer 
 - [PHP](anotacoes/php.md)
 - [GIT](anotacoes/git.md)
 - [POO](anotacoes/poo.md)
+- [REST](anotacoes/rest.md)
 
 ## Cursos
 | Cursos              | Link                                                                             |
