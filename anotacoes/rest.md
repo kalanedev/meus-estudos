@@ -151,6 +151,73 @@ O retorno da aplicação sempre deve seguir o que está escrito na documentaçã
 * Media type e mime type são a mesma coisa.
 * A diferença entre content-type e accept é que num POST(por exemplo) o formato dos dados deve ser indicado no content-type e o accept deve informar o tipo de retorno do servidor.
 
+## Gerindo Erros
+Quando fazemos requisições Restful, recebmos como retorno um possível erro por falha no formato da requisição ou causas internas referentes ao servidor. A mensagem opde não ser clara, então o intuito da gerência de erros é informar ao requisitante de uma forma explicativa.   
+Vale lembrar que normalmente só retorna o status code.
+
+### Classes dos HTTP Status Code
+* Informacional: começa com 1 e a maioria não é usado atualmente
+* Success: começa com 2 e indica sucesso no servidor/cliente
+* Redirection: começa com 3 e indica que o cliente deve fazer uma ação adicional antes da requisição estar completa
+* Cliente error: começa com 4 e indica erro na requisição do cliente
+* Server error: começa com 5 e a requisição foi válida mas o server não processou com sucesso
+
+No site [Lista e definição dos Status Code](httpstatuses.com) lista e define os Status Code.
+
+## Versionamento
+Isso faz com que você crie uma API que suporte as mudanças pode ser com:
+* subdomínio -> api.example.com/users
+* URL -> example.com/v1/users
+* HTTP Header customizado -> X-API-Version:1
+* URL com parâmetro -> example.com/users?v=1
+* Accept Header com Media Type customizado -> Accept: application/vnd.myapi.v2+json
+* Accept Header com opção de versão -> application/vnd.myapi+json;version=2.0
+
+A mais usada ultimamente é através de URL, e tem como pontos positivos: fácil implementação, permite compartilhar facil e evita erros de programadores novatos.
+
+
+CACHING -> reduz o custo de rodar aplicações 
+* qualquer valor que é difícil e computacionalmente custoso de se obter deve ser cacheado 
+* não devemos cachear o que muda com frequência (real time)
+
+CACHE INVALIDATION -> processo feito para saber se o cache está desatualizado
+
+PONTOS CHAVE SOBRE CACHING
+* pode economizar muito tempo (pq??)
+* gasta menos com servidores, pois quando dimínuimos o tempo as aplicações demoram menos para rodar
+* permite que uma aplicação cresça sem "atrapalhar"
+* alguns dados não real time e é muito difícil tentar cacheá-los 
+* os demais variam no tempo conforme o dado é atualizado
+
+OBJETIVO DO CACHING
+* eliminar o envio de requisições o máximo possível
+* caso precise fazer mesmo assim, reduz os dados de resposta
+ -> usando um mecanismo de expiração chamado cache-control
+ -> usando um mecanismo de validação ETag ou Last-Modified
+
+ Prevenir Requisições - para fazer uma requisição HTTP de um jeito mais rápido podemos não enviá-la inteira, o Header cache-control que define isso. Ex.:
+ cache-control: max-age = 3600
+(desenho explicando que max-age especifica o tempo para ser cacheado em SEGUNDOS)
+ também pode ser feito por roteadores, proxy etc
+
+private/public - define quem pode fazer o cache, sendo pruvate apenas o browser e public qualquer um, inclusive intermediários como por exemplo roteadores
+
+no cache - pode ser cacheada mas não reusada sem checar o server, e pode ser combinada com um Etag
+no store - não deve ser armazenada no browser sem intermediários
+
+Outras diretivas que podem ser usadas encontramos em: [diretivas que podem ser usadas](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/cache-control)
+
+ETag -> Entity tag, assegura um token de validação identificando uma versão específica de uma resposta
+o token pode ter letras e números como por exemplo um HASH (explicar)
+na maior parte das APIs web é raramente possível fazer caching (pq), então usamos ETag para ganhar tempo e reduzir custo
+
+timestamp -> é a data da última atualização, podemos usar para verificar se está desatualizado
+Para isso é melhor usar a header Last-Modified associado a header If-Modified-Since seguindo a mesma lógica da ETag
+
+CACHE COM DIFERENTES TIPOS DE REPRESENTAÇÃO
+* podemos fazer requisições para vários tipos de representação usando o Header Accept
+* mesmo que tenhamos várias representações diferentes o browser fica confuso de qual resposta fazer cache devido a ser o mesmo verbo HTTP e URI
+* para resolver temos o header Vary que permite indicar outros itens para composição do cache. Ele pode informar mais de uma chave
 
 
 -----------------
