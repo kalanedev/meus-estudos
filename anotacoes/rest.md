@@ -5,15 +5,15 @@ Quando você for criar uma plataforma, você já vai ter o código com as funç�
 
 --------------
 
-* API application - se preocupa em desenvolver apenas a parte da interface: website, native apps e social integrations (facebook, twitter...). Todos vão se comunicar com a API. Desenvolvemos o Rest API apenas, e ele irá se comunicar com os demais.
+* API application - se preocupa em desenvolver apenas a parte da interface: website, native apps e social integrations (facebook, twitter...). Todos vão se comunicar com a API. Desenvolvemos o Rest API apenas, e ele irá se comunicar com os demais;
 
-* Resource (recursos) - são coisas que podem ser manipuladas através de um ID. Ex.: recurso - usuário      id:site.com/user. Vale ressaltar que a nomeação do recurso é sempre um substantivo, nunca verbo
+* Resource (recursos) - são coisas que podem ser manipuladas através de um ID. Ex.: recurso - usuário      id:site.com/user. Vale ressaltar que a nomeação do recurso é sempre um substantivo, nunca verbo;
 
-* URI - identificador uniforme de recurso. É a cadeia de caracteres que vai identificar unicamente na internet o recurso. No ex. anterior seria site.com/user. Porque pode ter "user" em vários sites, mas ESSE é unicamente do site.com     
+* URI - identificador uniforme de recurso. É a cadeia de caracteres que vai identificar unicamente na internet o recurso. No ex. anterior seria site.com/user. Porque pode ter "user" em vários sites, mas ESSE é unicamente do site.com;     
 
-* URL - localizador padrão de recursos. Ela traz o protocolo (HTTP), a URI e o recurso. 
+* URL - localizador padrão de recursos. Ela traz o protocolo (HTTP), a URI e o recurso; 
 
-* URN - um tipo de URI que usa o URN Scheme e tem como objetivo a identificação única do recurso, de forma persistente e independente da localização. (não utilizado)
+* URN - um tipo de URI que usa o URN Scheme e tem como objetivo a identificação única do recurso, de forma persistente e independente da localização (não utilizado);
 
 * IRI - identificador de recursos internacionalizado (generalização da URL). Contém caracteres especiais pré definidos.
 
@@ -25,15 +25,15 @@ Essas são as APIs mais populares e flexíveis encontradas na Web atualmente. O 
 
 ## Constraints
 São os conjuntos das melhores práticas, sendo elas:
-* cliente-servidor: tem como principal característica separar as responsabilidades de diferentes partes de um sistema. É a divisão front-back.
-* stateless: cada requisição não deve ter ligação com requisições anteriores ou futuras, deve contar apenas as informações necessárias para fazer o que foi pedido.
-* cache: para uma melhor performance, um sistema REST deve permitir que suas respostas sejam passíveis de cache
-* interface uniforme: devemos deixar tudo no padrão, seguindo: recursos-> mensagens autodescritivas-> hypermedia
+* cliente-servidor: tem como principal característica separar as responsabilidades de diferentes partes de um sistema. É a divisão front-back;
+* stateless: cada requisição não deve ter ligação com requisições anteriores ou futuras, deve contar apenas as informações necessárias para fazer o que foi pedido;
+* cache: para uma melhor performance, um sistema REST deve permitir que suas respostas sejam passíveis de cache;
+* interface uniforme: devemos deixar tudo no padrão, seguindo: recursos-> mensagens autodescritivas-> hypermedia.
 
 ![diagrama top](/.github/img/rest-1.png) 
 
-* sistema em camadas: podemos colocar algo no meio do caminho  e aquilo será transparente ao cliente. Balanceia a carga de requisições.
-* código sob demanda (opcional): tem como ideia aumentar a flexibilidade dos clientes. Ex.: um códgo JS que só é baixado quando determinada página é carregada. É opcional pois reduz a visibilidade do que está sendo baixado.
+* sistema em camadas: podemos colocar algo no meio do caminho  e aquilo será transparente ao cliente. Balanceia a carga de requisições;
+* código sob demanda (opcional): tem como ideia aumentar a flexibilidade dos clientes. Ex.: um códgo JS que só é baixado quando determinada página é carregada. É opcional pois reduz a visibilidade do que está sendo baixado;
 
 RESTFUL - API que segue os princípios REST.
 
@@ -41,7 +41,7 @@ Representações - o formato em que será devolvida a informação solicitada pe
 Mais utilizadas: JSON(chave e valor), XML(tag).
 
 ## Rest vs Soap
-As APIS Sopar usam o Simple Object Access Protocol (Protocolo de Acesso a Objetos Simples). Cliente e servidor trocam mensagens usando XML. Esta é uma API menos flexível que era mais popular no passado. 
+As APIS SOAP usam o Simple Object Access Protocol (Protocolo de Acesso a Objetos Simples). Cliente e servidor trocam mensagens usando XML. Esta é uma API menos flexível que era mais popular no passado e agora não mais devido ao fato de ser mais pesado, mais complexo e retornar apenas em XML.
 Temos como principais diferenças entre os dois tipos:
 | REST | SOAP |
 |---|---|
@@ -50,15 +50,15 @@ Temos como principais diferenças entre os dois tipos:
 | suporta vários formatos (JSON, XML, YAML) | só suporta XML |
 
 ## CURL
-É uma ferramenta de comando para pegar ou enviar arquivos utilizando sintaxe URL. Tem um conjunto de opções que permitem você moificar qualquer coisa na requisição que será enviada.
+É uma ferramenta de comando para pegar ou enviar arquivos utilizando sintaxe URL. Tem um conjunto de opções que permitem você modificar qualquer coisa na requisição que será enviada.
 
 ### Atalhos do CURL:
-* -H -> atalho para Header. Essa opção permite adicionar ou substituir campos do cabeçalho HTTP. Ex.: -H "Content-Type: application/json"
-* -d -> atalho para data. Usamos quando queremos enviar dados para o servidor. Ex.: -d '{"name":"Luluzinha top"}'
-* -i -> ou -include -> para o CURL mostrar, além do corpo, o cabeçalho da mensagem
-* -I ou -head -> diz ao CURL para fazer uma requisição tipo Head; traz somente o cabeçalho
-* -X ou -request -> especifica qual o verbo HTTP queremos usar. O padrão é GET, mas podemos usar POST, PUT, PATCH, DELETE.
-* curl --help -> mostrar os comandos que você pode usar
+* -H -> atalho para Header. Essa opção permite adicionar ou substituir campos do cabeçalho HTTP. Ex.: -H "Content-Type: application/json";
+* -d -> atalho para data. Usamos quando queremos enviar dados para o servidor. Ex.: -d '{"name":"Luluzinha top"}';
+* -i -> ou -include -> para o CURL mostrar, além do corpo, o cabeçalho da mensagem;
+* -I ou -head -> diz ao CURL para fazer uma requisição tipo Head; traz somente o cabeçalho;
+* -X ou -request -> especifica qual o verbo HTTP queremos usar. O padrão é GET, mas podemos usar POST, PUT, PATCH, DELETE;
+* curl --help -> mostrar os comandos que você pode usar.
 
 O que o CURL mostra como resposta de uma requisição HTTP pode ser dividido em 4 partes:
 * start line: linha de início, é obrigatória. Pode ser dividida em duas partes: request-line e status-line. A request-line indica a versão do HTTP que foi usada e logo em seguida vem a status line com a resposta, como no exemplo abaixo: 
@@ -66,29 +66,30 @@ O que o CURL mostra como resposta de uma requisição HTTP pode ser dividido em 
 ![exemplo de requisição](/.github/img/rest-2.png)
 
 * header fields: cabeçalho de campos, pode ter 0 ou mais. Representam os metadados da requisição e resposta HTTP. Contém informações sobre como a transferência de dados deve ser manipulada, como por exemplo:   
-  * content-type - informa como você vai receber a informação enviada  
-  * content-lenght - informa o tamanho do corpo da mensagem em octetos
-  * x-powered-by - header fiels não oficiais começam com X, mas devemos evitar ao máximo e optar pelos oficiais.                 Caso seja realmente necessário, podemos não começar com X.
+  * content-type - informa como você vai receber a informação enviada;  
+  * content-lenght - informa o tamanho do corpo da mensagem em octetos;
+  * x-powered-by - header fiels não oficiais começam com X, mas devemos evitar ao máximo e optar pelos oficiais.                 
+  Caso seja realmente necessário, podemos não começar com X.
 
-* empty line: linha em branco, é obrigatória. Delimita o fim dos header fields e o início do corpo da menasgem.
+* empty line: linha em branco, é obrigatória. Delimita o fim dos header fields e o início do corpo da mensagem;
 
-* message-body: corpo da mensagem, é opcional. Contém os dados que foram enviados do servidos em resposta à requisição feita. Vale ressaltar que o curl -v também faz uma requisição e tem o resultado mais verboso.
+* message-body: corpo da mensagem, é opcional. Contém os dados que foram enviados do servidor em resposta à requisição feita. Vale ressaltar que o curl -v também faz uma requisição e tem o resultado mais verboso.
 
-OBS.: apesar de cada requisição ter uma resposta diferente, toda terão a start line e a empty line
+OBS.: apesar de cada requisição ter uma resposta diferente, todas terão a start line e a empty line
 
 ## Métodos para criar uma API Rest
 Para isso podemos utilizar 9 métodos, e cada um deles tem uma semântica de operações:
-* GET - para pegar dados de um recurso. NÃO MODIFICA OS DADOS
-* POST - usado para CRIAR um item de um recurso. Ex.: já tem um user, mas vou usá-lo para criar outro além do já existente
-* PUT - atualizar
-* DELETE - apagar determinado recurso
+* GET - para pegar dados de um recurso. NÃO MODIFICA OS DADOS;
+* POST - usado para CRIAR um item de um recurso. Ex.: já tem um user, mas vou usá-lo para criar outro além do já existente;
+* PUT - atualizar;
+* DELETE - apagar determinado recurso;
 * PATCH - faz modificações parciais nos recursos (muda valores específicos ao invés de enviar todos os dados novamente).
 
 ![métodos para criar uma API Restful](/.github/img/rest-3.png)
 
 * OPTIONS:  é a forma do cliente perguntar ao servidor quais os requisitos para determinado recurso. Ex.: quais métodos, qual URL...
-* ACCESS-CONTROL-ALLOW-METHODS: mostra quais os métodos que podem ser usados. É importante que você exemplifique os métodos para facilitar quando as pessoas forem utilizar
-* TRACE: ele volta a requisição recebida para o cliente ver se houve alguma mudança ou adição feita por servidores intermediários
+* ACCESS-CONTROL-ALLOW-METHODS: mostra quais os métodos que podem ser usados. É importante que você exemplifique os métodos para facilitar quando as pessoas forem utilizar;
+* TRACE: ele volta a requisição recebida para o cliente ver se houve alguma mudança ou adição feita por servidores intermediários;
 * CONNECT: converte a requisição para um túnel TCP/IP transparente, usualmente para facilitar a comunicação criptografada com SSL através de um proxy HTTP não criptografado.
 
 
@@ -135,90 +136,97 @@ O retorno da aplicação sempre deve seguir o que está escrito na documentaçã
 * antes da barra é o tipo e depois o subtipo. Tambem dá para especificar alguns parâmetros adicionais como o charset=UTF-8.
 
 ### Tipos registrados de alto nível
-* application                                      
-* audio                                            
-* example                                          
-* image                                            
-* message
-* model
-* multipart
-* text
-* video
+* application;                                      
+* audio;                                            
+* example;                                          
+* image;                                            
+* message;
+* model;
+* multipart;
+* text;
+* video.
 
 ## Outras informações importantes
-* Para informar o mediatype usamos o header field Accept na hora da requisição, ele também pode encadear outros tipos em uma mesma requisição, basta separar por vírgula.   
-* O parâmetro q define quality factor, que informa a ordem preferida do retorno. Deve estar no parâmetro entre 0 e 1, sendo 1 o de maior prioridade. Ex.: dou valor 0.5 para um XML e 1 para JSON, o que quer dizer que aceito os dois mas tenho preferência pelo JSON.   
-* Media type e mime type são a mesma coisa.
+* Para informar o mediatype usamos o header field Accept na hora da requisição, ele também pode encadear outros tipos em uma mesma requisição, basta separar por vírgula;   
+* O parâmetro q define quality factor, que informa a ordem preferida do retorno. Deve estar no parâmetro entre 0 e 1, sendo 1 o de maior prioridade. Ex.: dou valor 0.5 para um XML e 1 para JSON, o que quer dizer que aceito os dois mas tenho preferência pelo JSON;   
+* Media type e mime type são a mesma coisa;
 * A diferença entre content-type e accept é que num POST(por exemplo) o formato dos dados deve ser indicado no content-type e o accept deve informar o tipo de retorno do servidor.
 
 ## Gerindo Erros
-Quando fazemos requisições Restful, recebmos como retorno um possível erro por falha no formato da requisição ou causas internas referentes ao servidor. A mensagem opde não ser clara, então o intuito da gerência de erros é informar ao requisitante de uma forma explicativa.   
+Quando fazemos requisições Restful, recebemos como retorno um possível erro por falha no formato da requisição ou causas internas referentes ao servidor. A mensagem pode não ser clara, então o intuito da gerência de erros é informar ao requisitante de uma forma explicativa.   
 Vale lembrar que normalmente só retorna o status code.
 
 ### Classes dos HTTP Status Code
-* Informacional: começa com 1 e a maioria não é usado atualmente
-* Success: começa com 2 e indica sucesso no servidor/cliente
-* Redirection: começa com 3 e indica que o cliente deve fazer uma ação adicional antes da requisição estar completa
-* Cliente error: começa com 4 e indica erro na requisição do cliente
-* Server error: começa com 5 e a requisição foi válida mas o server não processou com sucesso
+* Informacional: começa com 1 e a maioria não é usado atualmente;
+* Success: começa com 2 e indica sucesso no servidor/cliente;
+* Redirection: começa com 3 e indica que o cliente deve fazer uma ação adicional antes da requisição estar completa;
+* Cliente error: começa com 4 e indica erro na requisição do cliente;
+* Server error: começa com 5 e a requisição foi válida mas o server não processou com sucesso.
 
 No site [Lista e definição dos Status Code](httpstatuses.com) lista e define os Status Code.
 
 ## Versionamento
 Isso faz com que você crie uma API que suporte as mudanças pode ser com:
-* subdomínio -> api.example.com/users
-* URL -> example.com/v1/users
-* HTTP Header customizado -> X-API-Version:1
-* URL com parâmetro -> example.com/users?v=1
-* Accept Header com Media Type customizado -> Accept: application/vnd.myapi.v2+json
-* Accept Header com opção de versão -> application/vnd.myapi+json;version=2.0
+* subdomínio -> api.example.com/users;
+* URL -> example.com/v1/users;
+* HTTP Header customizado -> X-API-Version:1;
+* URL com parâmetro -> example.com/users?v=1;
+* Accept Header com Media Type customizado -> Accept: application/vnd.myapi.v2+json;
+* Accept Header com opção de versão -> application/vnd.myapi+json;version=2.0.
 
-A mais usada ultimamente é através de URL, e tem como pontos positivos: fácil implementação, permite compartilhar facil e evita erros de programadores novatos.
+A mais usada ultimamente é através de URL, e tem como pontos positivos: fácil implementação, permite compartilhar de forma mais fácil e evita erros de programadores novatos.
 
+## CACHING
+Reduz o custo de rodar aplicações. Qualquer valor que é difícil e computacionalmente custoso de se obter deve ser cacheado, mas não devemos cachear o que muda com frequência (real time).
 
-CACHING -> reduz o custo de rodar aplicações 
-* qualquer valor que é difícil e computacionalmente custoso de se obter deve ser cacheado 
-* não devemos cachear o que muda com frequência (real time)
+* Cache invalidation é processo feito para saber se o cache está desatualizado.
 
-CACHE INVALIDATION -> processo feito para saber se o cache está desatualizado
+### PONTOS CHAVE SOBRE CACHING
+* pode economizar muito tempo, já que a leitura de dados do cache de memória é extremamente rápida; 
+* gasta menos com servidores, pois quando dimínuimos o tempo as aplicações demoram menos para rodar;
+* permite que uma aplicação cresça sem "atrapalhar";
+* alguns dados são real time e é muito difícil tentar cacheá-los, os demais variam no tempo conforme o dado é atualizado.
 
-PONTOS CHAVE SOBRE CACHING
-* pode economizar muito tempo (pq??)
-* gasta menos com servidores, pois quando dimínuimos o tempo as aplicações demoram menos para rodar
-* permite que uma aplicação cresça sem "atrapalhar"
-* alguns dados não real time e é muito difícil tentar cacheá-los 
-* os demais variam no tempo conforme o dado é atualizado
+### OBJETIVO DO CACHING
+Eliminar o envio de requisições o máximo possível, mas caso precise fazer mesmo assim ele reduz os dados de resposta.
+ * usando um mecanismo de validação ETag ou Last-Modified que é melhor explicado nos próximos tópicos;
+ * usando um mecanismo de expiração, que especifica o tempo máximo em que um recurso será considerado fresco em segundos (também pode ser feito por roteadores, proxy...). Por exemplo:    
+ cache-control: max-age = 3600.    
 
-OBJETIVO DO CACHING
-* eliminar o envio de requisições o máximo possível
-* caso precise fazer mesmo assim, reduz os dados de resposta
- -> usando um mecanismo de expiração chamado cache-control
- -> usando um mecanismo de validação ETag ou Last-Modified
+Ele pode ser private ou public, o que vai definir quem pode fazer o cache. Private permite apenas que o browser faça e public que qualquer um faça, inclusive intermediários como por exemplo roteadores.   
 
- Prevenir Requisições - para fazer uma requisição HTTP de um jeito mais rápido podemos não enviá-la inteira, o Header cache-control que define isso. Ex.:
- cache-control: max-age = 3600
-(desenho explicando que max-age especifica o tempo para ser cacheado em SEGUNDOS)
- também pode ser feito por roteadores, proxy etc
-
-private/public - define quem pode fazer o cache, sendo pruvate apenas o browser e public qualquer um, inclusive intermediários como por exemplo roteadores
-
-no cache - pode ser cacheada mas não reusada sem checar o server, e pode ser combinada com um Etag
-no store - não deve ser armazenada no browser sem intermediários
-
+Como exemplo de diretivas cache control vou mostrar duas que se confundem e a diferença entre ambas:    
+* no cache - pode ser cacheada mas não reusada sem checar o server, e pode ser combinada com um Etag;
+* no store - não deve ser armazenada no browser sem intermediários.    
 Outras diretivas que podem ser usadas encontramos em: [diretivas que podem ser usadas](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/cache-control)
 
-ETag -> Entity tag, assegura um token de validação identificando uma versão específica de uma resposta
-o token pode ter letras e números como por exemplo um HASH (explicar)
-na maior parte das APIs web é raramente possível fazer caching (pq), então usamos ETag para ganhar tempo e reduzir custo
+Na maior parte das APIs web é raramente possível prevenir requisições usando o cache control pois na API fazemos uma requisição simples e recebemos o retorno do servidor, então usamos ETag para ganhar tempo e reduzir custos.    
+* ETag -> Entity tag, assegura um token de validação identificando uma versão específica de uma resposta, sendo que esse token pode ter letras e números como por exemplo um HASH (função Hash é qualquer algoritmo que mapeie dados grandes e de tamanho variável para pequenos dados de tamanho fixo);
+* timestamp -> é a data da última atualização. Podemos usar para verificar se está desatualizado, mas para isso é melhor usar a header Last-Modified associado a header If-Modified-Since seguindo a mesma lógica da ETag.
 
-timestamp -> é a data da última atualização, podemos usar para verificar se está desatualizado
-Para isso é melhor usar a header Last-Modified associado a header If-Modified-Since seguindo a mesma lógica da ETag
+### CACHE COM DIFERENTES TIPOS DE REPRESENTAÇÃO
+Mesmo que tenhamos várias representações diferentes o browser fica confuso de qual resposta fazer cache devido a ser o mesmo verbo HTTP e URI, então para resolver temos o header Vary que permite indicar outros itens para composição do cache e ele pode informar mais de uma chave.    
+Nós podemos fazer requisições para vários tipos de representação usando o Header Accept
 
-CACHE COM DIFERENTES TIPOS DE REPRESENTAÇÃO
-* podemos fazer requisições para vários tipos de representação usando o Header Accept
-* mesmo que tenhamos várias representações diferentes o browser fica confuso de qual resposta fazer cache devido a ser o mesmo verbo HTTP e URI
-* para resolver temos o header Vary que permite indicar outros itens para composição do cache. Ele pode informar mais de uma chave
+## IDENTIFICAÇÃO x AUTENTICAÇÃO x AUTORIZAÇÃO
+Identificação - usa só a API Key para identificar, porém o desenvolvedor pode repassar a API, o que é um problema.     
+Autenticação - usa login e senha para confirmar quem é     
+Autorização - define o que pode fazer de acordo com as suass permissões
 
+A autenticação pode feita ser através de cookies, que permitem o servidor gravar e manter os estados (stateful), o contrário do que Rest propõe (stateless, uma requisição não depende da outra e torna mais fácil crescer a aplicação).
+
+### PADRÃO DE AUTENTICAÇÃO HTTP
+Como padrão temos basic e através de digest, que são stateless. 
+Nesse caso, usuário e senha incluídos em cada requisição, codifica em Base64 para basic e hash MD5 para digest.
+* Realm é opcional e indica  proteção de determinado espaço.
+Lado negativo: pede login sempre, mas podemos resolver isso com API Key e API Secret Token, que vou explicar abaixo. 
+
+* API KEY - fica sendo transmitida em todas as requisições para identificar aplicação e geralmente é combinada com um email e senha. Para isso é importate que o servidor tenha configurado os certificados SSL para garantir a maior segurança possível.
+
+* TOKEN - manda o usuário e senha pro servidor e recebe um token que é informado em cada requisição através da Header Authorization. Costuma ser escolhida para uso em web API mas não é considerada stateless porque o servidor armazena o token e isso caracteriza o "manter o estado".    
+Lado negativo: tem que replicar os dados armazenados na medida que se escala, muitos clientes geram muitos tokens e se cada cliente armazenado tem mais de um token isso dobra facilmente.
+
+Como exemplos temos OAuthy e JWT
 
 -----------------
 ### wip

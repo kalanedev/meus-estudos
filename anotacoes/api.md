@@ -12,13 +12,15 @@ Podemos dividir em servidor e cliente, sendo a API que faz a solicitação o ser
 Quando você abre alguma aplicativo que pede para que você permita o uso da câmera, por exemplo, você está definindo qual será a resposta do cliente para a solicitação do servidor.
 Podemos dividir as APIs em quatro, cada uma depende de quando foi criada e qual a finalidade de cada uma delas, sendo que a diferença entre elas é a maneira que vai retornar aquilo que foi solicitado.
 ### APIs SOAP
-Essas APIs usam o Simple Object Access Protocol (Protocolo de Acesso a Objetos Simples). Cliente e servidor trocam mensagens usando XML. Esta é uma API menos flexível que era mais popular no passado.
+Essas APIs usam o Simple Object Access Protocol (Protocolo de Acesso a Objetos Simples). Cliente e servidor trocam mensagens usando XML. Esta é uma API menos flexível que era mais popular no passado e perdeu sua popularidade devido ao fato de ser mais pesado, mais complexo e retorna apenas em XML.
 ### APIs RPC
 Essas APIs são conhecidas como Remote Procedure Calls (Chamadas de Procedimento Remoto). O cliente conclui uma função (ou um procedimento) no servidor e o servidor envia a saída de volta ao cliente.
 ### APIs WebSocket
 É outro desenvolvimento de API da Web moderno que usa objetos JSON para transmitir dados. Uma API WebSocket oferece suporte à comunicação bidirecional entre aplicativos cliente e o servidor. O servidor pode enviar mensagens de retorno de chamada a clientes conectados, tornando-o mais eficiente que a API REST.
+
+-- desenho e explicação melhor do conceito
 ### APIs Rest
-REST significa transferência representacional de estado e é o que define um conjunto de funções (GET, PULL, DELETE, etc) que os clientes podem usar para acessar dados. Nese tipo a comunicação clente e servidor é usando HTTP.
+REST significa transferência representacional de estado e é o que define um conjunto de funções (GET, PUT, DELETE, etc) que os clientes podem usar para acessar dados. Nese tipo a comunicação clente e servidor é usando HTTP.
 Sua principal característica é a ausência de estado, ou seja, os dados do cliente não são salvos entre as solicitações.
 Essas são as APIs mais populares e flexíveis encontradas na Web atualmente. O cliente envia solicitações ao servidor como dados. O servidor usa essa entrada do cliente para iniciar funções internas e retorna os dados de saída ao cliente.
 ### Principais benefícios da API Rest
@@ -41,7 +43,10 @@ São os pontos de contato finais no sistema de comunicação da API, que inclui 
 * segurança - os endpoints tornam o sistema vulnerável, então é necessário que sempre esteja monitorando a API para garantir que não há algum tipo de uso indevido;
 * performance - os endpoints (principalmente de alto tráfego) podem causar gargalos e afetar a performance do sistema.
 ### Como proteger uma API rest
-Todas devem ser protegidas através de monitamento e autenticação adequados. A duas principais maneiras incluem:
+
+MÉTODOS DE AUTENTICAÇÃO (separado)
+
+Todas devem ser protegidas através de monitoramento e autenticação adequados. A duas principais maneiras incluem:
 * tokens de autorização - autorizam os usuários a fazer a chamada de API. Eles verificam quem é o usuário e as permissões que ele tem.
 * chaves de API - verificam o programa ou aplicação que fez a chamada de API. Identifica a aplicação e garante que tenha acesso aquela API específica.
 ### Como criar uma API
