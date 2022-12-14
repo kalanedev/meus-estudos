@@ -8,8 +8,10 @@ Aqui irei regitrar estudos, cursos e outras coisas que estou aprendendo e fazer 
 - [PHP](anotacoes/php.md)
 - [GIT](anotacoes/git.md)
 - [POO](anotacoes/poo.md)
+- [REST](anotacoes/rest.md)
 
 ## Cursos
 | Cursos              | Link                                                                             |
 |---------------------|----------------------------------------------------------------------------------|
 |  PHP4Noobs          | [Udemy](https://www.udemy.com/course/php4noobs/learn/lecture/26203800#overview)  | 
+| Entendendo e Documentando REST/ Restful APIs | [Udemy](https://www.udemy.com/course/restful-apis/learn/lecture/6193830#overview) |
