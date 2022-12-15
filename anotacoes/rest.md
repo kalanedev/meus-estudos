@@ -1,9 +1,12 @@
+# REST4noobs
+Explicação básica de APIs REST para iniciantes, mas antes de entrar em REST devemos entender primeiro um pouco sobre APIs.
+
 ## O que é uma API?
 APIs são conjuntos de padrões que fazem parte de uma interface e permitem a criação de plataformas de maneira mais simples e prática para desenvolvedores. É um conjunto de normas que possibilita a comunicação entre plataformas através de uma série de padrões e protocolos.   
 A partir delas os desenvolvedores podem comunicar algo que eles fizeram (softwares e aplicativos) com outra coisa que já existe seguindo um padrão, sem ter a necessidade de criar uma interface nova do zero. Por exemplo: se você cria um aplicativo para armazenamento de fotos, pode usar a API do SO para ter acesso à camera ao inves de criar toda uma interface para a câmera para poder fazer isso.   
 Quando você for criar uma plataforma, você já vai ter o código com as funções que o programa deve executar seguindo um padrão. Ela também é boa por questões de segurança porque podem bloquear acesso e permissões a dados tanto em relação a software quanto hardware.
 
---------------
+Temos alguns conceitos que são importantes e falaremos mais a frente, como:
 
 * API application - se preocupa em desenvolver apenas a parte da interface: website, native apps e social integrations (facebook, twitter...). Todos vão se comunicar com a API. Desenvolvemos o Rest API apenas, e ele irá se comunicar com os demais;
 
@@ -17,13 +20,21 @@ Quando você for criar uma plataforma, você já vai ter o código com as funç�
 
 * IRI - identificador de recursos internacionalizado (generalização da URL). Contém caracteres especiais pré definidos.
 
+## Rest vs Soap 
+As APIS SOAP usam o Simple Object Access Protocol (Protocolo de Acesso a Objetos Simples). Cliente e servidor trocam mensagens usando XML. Esta é uma API menos flexível que era mais popular no passado e agora não mais devido ao fato de ser mais pesado, mais complexo e retornar apenas em XML.
+Temos como principais diferenças entre os dois tipos:
+| REST | SOAP |
+|---|---|
+| é um modelo arquitetural | é um protocolo |
+| requisição HTTP simples | usa SOAP envelopado no HTTP para fazer chamadas RPC |
+| suporta vários formatos (JSON, XML, YAML) | só suporta XML |
+
 ## API Rest
 REST significa transferência representacional de estado e é o que define um conjunto de funções (GET, PULL, DELETE, etc) que os clientes podem usar para acessar dados. Nesse tipo a comunicação clente e servidor é usando HTTP.   
 Sua principal característica é a ausência de estado, ou seja, os dados do cliente não são salvos entre as solicitações.   
 Essas são as APIs mais populares e flexíveis encontradas na Web atualmente. O cliente envia solicitações ao servidor como dados. O servidor usa essa entrada do cliente para iniciar funções internas e retorna os dados de saída ao cliente.
 
-
-## Constraints
+### Constraints
 São os conjuntos das melhores práticas, sendo elas:
 * cliente-servidor: tem como principal característica separar as responsabilidades de diferentes partes de um sistema. É a divisão front-back;
 * stateless: cada requisição não deve ter ligação com requisições anteriores ou futuras, deve contar apenas as informações necessárias para fazer o que foi pedido;
@@ -39,15 +50,6 @@ RESTFUL - API que segue os princípios REST.
 
 Representações - o formato em que será devolvida a informação solicitada pelo cliente.
 Mais utilizadas: JSON(chave e valor), XML(tag).
-
-## Rest vs Soap
-As APIS SOAP usam o Simple Object Access Protocol (Protocolo de Acesso a Objetos Simples). Cliente e servidor trocam mensagens usando XML. Esta é uma API menos flexível que era mais popular no passado e agora não mais devido ao fato de ser mais pesado, mais complexo e retornar apenas em XML.
-Temos como principais diferenças entre os dois tipos:
-| REST | SOAP |
-|---|---|
-| é um modelo arquitetural | é um protocolo |
-| requisição HTTP simples | usa SOAP envelopado no HTTP para fazer chamadas RPC |
-| suporta vários formatos (JSON, XML, YAML) | só suporta XML |
 
 ## CURL
 É uma ferramenta de comando para pegar ou enviar arquivos utilizando sintaxe URL. Tem um conjunto de opções que permitem você modificar qualquer coisa na requisição que será enviada.
@@ -176,18 +178,18 @@ Isso faz com que você crie uma API que suporte as mudanças pode ser com:
 
 A mais usada ultimamente é através de URL, e tem como pontos positivos: fácil implementação, permite compartilhar de forma mais fácil e evita erros de programadores novatos.
 
-## CACHING
+## Caching
 Reduz o custo de rodar aplicações. Qualquer valor que é difícil e computacionalmente custoso de se obter deve ser cacheado, mas não devemos cachear o que muda com frequência (real time).
 
 * Cache invalidation é processo feito para saber se o cache está desatualizado.
 
-### PONTOS CHAVE SOBRE CACHING
+### Pontos chave sobre Caching
 * pode economizar muito tempo, já que a leitura de dados do cache de memória é extremamente rápida; 
 * gasta menos com servidores, pois quando dimínuimos o tempo as aplicações demoram menos para rodar;
 * permite que uma aplicação cresça sem "atrapalhar";
 * alguns dados são real time e é muito difícil tentar cacheá-los, os demais variam no tempo conforme o dado é atualizado.
 
-### OBJETIVO DO CACHING
+### Objetivo do Caching
 Eliminar o envio de requisições o máximo possível, mas caso precise fazer mesmo assim ele reduz os dados de resposta.
  * usando um mecanismo de validação ETag ou Last-Modified que é melhor explicado nos próximos tópicos;
  * usando um mecanismo de expiração, que especifica o tempo máximo em que um recurso será considerado fresco em segundos (também pode ser feito por roteadores, proxy...). Por exemplo:    
@@ -204,18 +206,18 @@ Na maior parte das APIs web é raramente possível prevenir requisições usando
 * ETag -> Entity tag, assegura um token de validação identificando uma versão específica de uma resposta, sendo que esse token pode ter letras e números como por exemplo um HASH (função Hash é qualquer algoritmo que mapeie dados grandes e de tamanho variável para pequenos dados de tamanho fixo);
 * timestamp -> é a data da última atualização. Podemos usar para verificar se está desatualizado, mas para isso é melhor usar a header Last-Modified associado a header If-Modified-Since seguindo a mesma lógica da ETag.
 
-### CACHE COM DIFERENTES TIPOS DE REPRESENTAÇÃO
+### Cache com diferentes tipos de representação
 Mesmo que tenhamos várias representações diferentes o browser fica confuso de qual resposta fazer cache devido a ser o mesmo verbo HTTP e URI, então para resolver temos o header Vary que permite indicar outros itens para composição do cache e ele pode informar mais de uma chave.    
 Nós podemos fazer requisições para vários tipos de representação usando o Header Accept
 
-## IDENTIFICAÇÃO x AUTENTICAÇÃO x AUTORIZAÇÃO
+## Identificação x Autenticação x Autorização
 Identificação - usa só a API Key para identificar, porém o desenvolvedor pode repassar a API, o que é um problema.     
 Autenticação - usa login e senha para confirmar quem é     
 Autorização - define o que pode fazer de acordo com as suass permissões
 
 A autenticação pode feita ser através de cookies, que permitem o servidor gravar e manter os estados (stateful), o contrário do que Rest propõe (stateless, uma requisição não depende da outra e torna mais fácil crescer a aplicação).
 
-### PADRÃO DE AUTENTICAÇÃO HTTP
+### Padrão de autenticação HTTP
 Como padrão temos basic e através de digest, que são stateless. 
 Nesse caso, usuário e senha incluídos em cada requisição, codifica em Base64 para basic e hash MD5 para digest.
 * Realm é opcional e indica  proteção de determinado espaço.
@@ -226,8 +228,47 @@ Lado negativo: pede login sempre, mas podemos resolver isso com API Key e API Se
 * TOKEN - manda o usuário e senha pro servidor e recebe um token que é informado em cada requisição através da Header Authorization. Costuma ser escolhida para uso em web API mas não é considerada stateless porque o servidor armazena o token e isso caracteriza o "manter o estado".    
 Lado negativo: tem que replicar os dados armazenados na medida que se escala, muitos clientes geram muitos tokens e se cada cliente armazenado tem mais de um token isso dobra facilmente.
 
-Como exemplos temos OAuthy e JWT
+### JWT (JSON Web Token)
+Como exemplos temos o JWT, que é um padrão aberto especificado pelo RFC 7519, que define uma forma compacta e independente de transmitir informações com segurança entre duas partes utilizando o formato JSON. 
+Caso a transmissão de dados seja sigilosa, é possível criptografar.
 
------------------
-### wip
+O JWT funciona da seguinte forma:
+Após a autenticação, um token é gerado pelo servidor para identificar o usuário. Toda vez que aquele usuário fizer uma requisição o servidor vai conferir o token. 
+Para gerar o token podemos usar, por exemplo, o JWT, que tem a seguinte estrutura:
+
+![estrutura JWT](/.github/img/rest-4.png)
+
+O header é composto por “alg”, que indica o algoritmo de hash utilizado (por exemplo o “HS256”) e por “typ”, que indica o tipo de token (neste caso o “JWT”).
+
+O corpo do token é aberto e pode ser utilizado para adicionar qualquer informação relevante a autenticação e autorização. No entanto, a RFC 7519 define o padrão de algumas claims que podem ser utilizadas de maneira opcional.
+
+“iss” – Issuer (Emissor)
+Responsável pela emissão do token.
+“sub” – Subject (Sujeito)
+A quem pertence o token
+
+“aud” – Audience (Destinatário)
+Aplicação que irá utilizar o token
+
+“exp” – Expiration Time (Tempo de expiração)
+Data de validade do token
+
+“nbf” – Not Before (Não antes)
+Data de início de validade do token, antes dela o token não deve ser aceito
+
+“iat” – Issued At (Emitido em)
+Data de emissão do token (em segundos desde a época que já é definida)
+
+“jti” – JWT ID
+Identificador único do token
+
+No caso do exemplo abaixo temos apenas sub, name e iat.
+
+A assinatura é composta pelo hash do header, payload e chave secreta utilizada pela aplicação, que pode ser gerada no próprio site. Lembrando que a assinatura de cada token é única.
+
+Como resultado final, teremos:
+
+![token JWT](/.github/img/rest-5.png)
+
+
 
