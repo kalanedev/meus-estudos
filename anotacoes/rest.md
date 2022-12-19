@@ -80,12 +80,55 @@ O que o CURL mostra como resposta de uma requisição HTTP pode ser dividido em 
 OBS.: apesar de cada requisição ter uma resposta diferente, todas terão a start line e a empty line
 
 ## Métodos para criar uma API Rest
-Para isso podemos utilizar 9 métodos, e cada um deles tem uma semântica de operações:
-* GET - para pegar dados de um recurso. NÃO MODIFICA OS DADOS;
-* POST - usado para CRIAR um item de um recurso. Ex.: já tem um user, mas vou usá-lo para criar outro além do já existente;
-* PUT - atualizar;
-* DELETE - apagar determinado recurso;
-* PATCH - faz modificações parciais nos recursos (muda valores específicos ao invés de enviar todos os dados novamente).
+Para isso podemos utilizar 9 métodos, e cada um deles tem uma semântica de operações que explicarei em seguida.
+
+### GET
+Para pegar dados de um recurso. NÃO MODIFICA OS DADOS;
+
+### POST 
+Usado para CRIAR um item de um recurso, ele envia dados para o servidor. Ex.: já tem um user, mas vou usá-lo para criar outro além do já existente.
+O tipo do corpo da solicitação é indicado pelo cabeçalho Content-Type.
+
+Geralmente o POST é enviado por meio de um formulário HTML, tendo isso em mente apresentarei em seguida alguns Mime Types, que é o mecanismo para dizer ao cliente a variedade de documentos transmitidos. Os navegadores costumam usar o MIME-type para determinar qual ação usar como padrão para fazer quando um recurso é obtido.
+
+Temos variedades de text, image, audio, video e application.
+Há também tipos de Multipart, que indicam uma categoria de documento que são quebrados e muitas vezes com diferentes tipos de mime.
+
+Application
+  * application/octet-stream - é o valor padrão para um arquivo binário;
+  * application/x-www-form-urlencoded - chaves e valores são codificados de forma separada por &, com = entre chave e valor. Esse tipo não é adequado para uso com dados binários pois caracteres não alfanuméricos em chaves e valores são percent encoded (podemos dizer que não aceita símbolos), então para isso usamos multipart/form-data.   
+
+Multipart  
+  * multipart/form-data - para postar arquivos inteiros como parte do envio do formulário;
+  * multipart/byteranges - usados juntamente com o 206 Status Code  para enviar apenas um subconjunto de um documento inteiro.
+
+Text  
+  * text/plain - é o valor padrão para arquivos de texto;
+  * text/css - para arquivos de texto css. Muitas vezes os servidores não reconhecem arquivos com o sufixo .css como arquivos CSS, em vez disso, enviam-nos com o tipo MIME de text/plain ou application/octet-stream: nesses casos, eles não serão reconhecidos como arquivos CSS pela maioria dos navegadores e serão silenciosamente ignorados;
+  * text/html - para arquivos de texto HTML. Tipos MIME alternativos para XHTML (como application/xml+html) são em sua maioria inúteis hoje em dia (HTML5 unificou esses formatos).
+
+Image
+  * image/gif;
+  * image/jpeg; 
+  * image/png;
+  * image/svg+xml. 
+
+Audio
+  * audio/wave, audio/wav, audio/wav, audio/x-pn-wav - arquivo de áudio no formato WAVE;
+  * audio/webm - arquivo de áudio no formato de contêiner WebM;
+  * video/webm - arquivo de vídeo, possivelmente com áudio, no formato de contêiner WebM;
+  * audio/ogg - arquivo de áudio no formato de contêiner OGG;
+  * video/ogg - arquivo de vídeo, possivelmente com áudio, no formato de contêiner OGG;
+  * application/ogg - arquivo de áudio ou vídeo usando o formato de contêiner OGG.
+
+### PUT
+ Cria um novo recurso ou subsititui uma representação do recurso de destino com os novos dados.
+
+### DELETE 
+Apagar determinado recurso. Se for aplicado com sucesso há muitos HTTP Status Code possíveis (202 - accepted, 204 - no content, 200 - ok).
+
+### PATCH 
+Faz modificações parciais nos recursos (muda valores específicos ao invés de enviar todos os dados novamente).
 
 ![métodos para criar uma API Restful](/.github/img/rest-3.png)
 
