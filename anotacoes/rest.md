@@ -52,7 +52,7 @@ Representações - o formato em que será devolvida a informação solicitada pe
 Mais utilizadas: JSON(chave e valor), XML(tag).
 
 ## CURL
-É uma ferramenta de comando para pegar ou enviar arquivos utilizando sintaxe URL. Tem um conjunto de opções que permitem você modificar qualquer coisa na requisição que será enviada.
+É uma ferramenta de comando que permite o envio de requisições utilizando a sintaxe URL. Tem um conjunto de opções que permitem você modificar qualquer coisa na requisição que será enviada.
 
 ### Atalhos do CURL:
 * -H -> atalho para Header. Essa opção permite adicionar ou substituir campos do cabeçalho HTTP. Ex.: -H "Content-Type: application/json";
@@ -222,7 +222,7 @@ Isso faz com que você crie uma API que suporte as mudanças pode ser com:
 A mais usada ultimamente é através de URL, e tem como pontos positivos: fácil implementação, permite compartilhar de forma mais fácil e evita erros de programadores novatos.
 
 ## Caching
-Reduz o custo de rodar aplicações. Qualquer valor que é difícil e computacionalmente custoso de se obter deve ser cacheado, mas não devemos cachear o que muda com frequência (real time).
+Reduz o tempo de rodar aplicações. Qualquer valor que é difícil e computacionalmente custoso de se obter deve ser cacheado, mas não devemos cachear o que muda com frequência (real time).
 
 * Cache invalidation é processo feito para saber se o cache está desatualizado.
 

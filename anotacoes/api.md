@@ -3,7 +3,7 @@ api.md
 APIs são conjuntos de padrões que fazem parte de uma interface e permitem a criação de plataformas de maneira mais simples e prática para desenvolvedores. A partir dela podemos criar softwares, aplicativos, programas e plataformas.
 ## O que é? 
 Application Programming Interface, que na sua tradução é interface de programação de aplicação, é um conjunto de normas que possibilita a comunicação entre plataformas através de uma série de padrões e protocolos.
-A partir delas os desenvolvedores podem comunicar algo que eles fizeram (softwares e aplicativos) com outra coisa que já existe seguindo um padrão, sem ter a necessidade de criar uma interface nova do zero. Por exemplo: se você cria um aplicativo para armazenamento de fotos, pode pode usar a API do SO para ter acesso à camera ao inves de criar toda uma interface para a câmera para poder fazer isso.
+A partir delas os desenvolvedores podem comunicar algo que eles fizeram (softwares e aplicativos) com outra coisa que já existe seguindo um padrão, sem ter a necessidade de criar uma interface nova do zero. Por exemplo: se você cria um aplicativo para armazenamento de fotos, pode usar a API do SO para ter acesso à camera ao invés de criar toda uma interface para a câmera para poder fazer isso.
 Quando você for criar uma plataforma, você já vai ter o código com as funções que o programa deve executar seguindo um padrão. Ela também é boa por questões de segurança porque podem bloquear acesso e permissões a dados tanto em relação a software quanto hardware.
 ## Exemplos de utilização
 Podemos observar o uso das APIs quando realizamos compras online, já que a plataforma utilizada para pagamentos — em que colocamos as informações de cartões de crédito — deve ser integrada à operadora do cartão, que pode ou não autorizar a compra; podemos ver no facebook, que faz a conexão com o instagram; no whatsapp, que acessa os contatos para poder usá-los também, e assim por diante.
@@ -12,7 +12,7 @@ Podemos dividir em servidor e cliente, sendo a API que faz a solicitação o ser
 Quando você abre alguma aplicativo que pede para que você permita o uso da câmera, por exemplo, você está definindo qual será a resposta do cliente para a solicitação do servidor.
 Podemos dividir as APIs em quatro, cada uma depende de quando foi criada e qual a finalidade de cada uma delas, sendo que a diferença entre elas é a maneira que vai retornar aquilo que foi solicitado.
 ### APIs SOAP
-Essas APIs usam o Simple Object Access Protocol (Protocolo de Acesso a Objetos Simples). Cliente e servidor trocam mensagens usando XML. Esta é uma API menos flexível que era mais popular no passado e perdeu sua popularidade devido ao fato de ser mais pesado, mais complexo e retorna apenas em XML.
+Essas APIs usam o Simple Object Access Protocol (Protocolo de Acesso a Objetos Simples). Cliente e servidor trocam mensagens usando XML. Esta é uma API menos flexível que era mais popular no passado e perdeu sua popularidade devido ao fato de ser mais pesado, mais complexo e retornar apenas em XML.
 ### APIs RPC
 Essas APIs são conhecidas como Remote Procedure Calls (Chamadas de Procedimento Remoto). O cliente conclui uma função (ou um procedimento) no servidor e o servidor envia a saída de volta ao cliente.
 ### APIs WebSocket
