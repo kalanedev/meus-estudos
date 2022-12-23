@@ -196,16 +196,3 @@ Podemos fazer operações com os arrays, e aqui vou explicar melhor sobre elas:
 uniao - representado por +, serve para unir o VALOR de um ou mais arrays
 
 igualdade - representado por == ele 
-
-
-
-
-
-
-
-
-
-
-
-
-

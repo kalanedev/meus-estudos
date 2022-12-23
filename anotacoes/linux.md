@@ -1,4 +1,6 @@
-Fala galera, tudo certo? Trouxe pra vocês alguns dos principais comandos do Linux daquele jeitinho bem simples pra você ver que é bem mais fácil do que parece. Espero que ajude ☺️
+# Linux
+
+Fala galera, tudo certo? Trouxe pra vocês alguns dos principais comandos do Linux daquele jeitinho bem simples pra você ver que é bem mais fácil do que parece. Espero que ajude ☺️.
 
 ### Comandos mais usados
 
@@ -156,13 +158,9 @@ Tem a função de compactar e descompactar aquivos, seguido de:
 * -c - utilizada para extração ser feita em outro diretório
 dentro do tar
 
- Outros exemplos:
+### Outros exemplos:
 * .tar -c - cria um novo arquivo .tar
 * .tar -v - mostra uma descrição do progresso de compactação
 * .tar -f - nome do arquivo
 * .tar.bz2 - maior compactação quando comparado com o gzip, mas leva mais tempo para compressão e descompactação
 * -j - para gerar um arquivo .tar.bz2
-
-
-
-
